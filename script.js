@@ -1,12 +1,12 @@
 let moodCounts = JSON.parse(localStorage.getItem('moodCounts') || '{}');
 
-// Show or hide overlay based on whether user already logged in
+
 const overlay = document.getElementById('overlay');
 if (localStorage.getItem('useremail')) {
   overlay.style.display = 'none';
 }
 
-// Emoji click — change background + track count
+
 function bgChange(element) {
   const color = element.getAttribute("data-color");
   const mood = element.getAttribute("data-mood");
@@ -20,7 +20,7 @@ function bgChange(element) {
   document.querySelector('#count').innerText = total;
 }
 
-// Login
+
 const startBtn = document.getElementById('startBtn');
 const loginError = document.getElementById('loginError');
 const emailInput = document.getElementById('email');

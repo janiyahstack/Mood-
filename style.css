@@ -3,15 +3,26 @@ body{
     margin: 0;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-align: center;
-    background-color: beige;
+    background-color: grey;
 }
 h1{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
-    color: black;
+    color: white;
 }
-.button{
-    display: ;
+.see{
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: inline-block;
+    border: 1px black;
+    background-color: red;
+    color: white;
+    width: 80px;
+    height: 40px;
+    margin-top: 1rem;
+}
+a{
+    display: flex;
     justify-content: centre;
     align-items: center;
     height: 300vh;
@@ -22,20 +33,19 @@ h1{
 }
 .emoji{
     cursor:pointer;
-    font-size: 10rem; 
+    font-size: 100px; 
     user-select: none;
+
 }
 .emoji:hover{
     transform: scale(1.2);
-}
-happy{
-    background-color: #ffae42;
-}
-sad{
-    background-color: #29465b;
 }
 
 h2{
     font-family: sans-serif;
     font-size: 1rem;
+    color: black;
+}
+.log-in-card{
+    margin-top: 90px;
 }

@@ -1,34 +1,33 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-
-    <title>success tracker</title>
+<title>success tracker</title>
 </head>
 <body>
     <h1>How are you today?</h1>
+    <a class="see" id="MoodBoard" href="mood.html"> Mood</a>
     <div class="emoji">
-        <button class="happy" data-mood="happy" data-color="#ffae42">😊</button>
-        <button class="sad" data-mood="sad" data-color="#29465b">😞</button>
-        <button class="numb" data-mood="numb" data-color="#000000">😑</button>
-        <button class="angry" data-mood="angry" data-color="#FF3939">😡</button>
-        <button class="tired" data-mood="tired" data-color="#E5D2C4">🥱</button>
-        <button class="excited" data-mood="excited" data-color="#FA799D">😃</button>
-        <button class="calm" data-mood="calm" data-color="#86a96f">😌</button>
+        <span data-mood="happy" data-color="#ffae42" onclick="bgChange(this)" id="mySpan">😊</span>
+        <span data-mood="sad" data-color="#29465b" onclick="bgChange(this)" id="meSpan">😞</span>
+        <span data-mood="numb" data-color="#000000" onclick="bgChange(this)" id="youSpan" >😑</span>
+        <span data-mood="angry" data-color="#FF3939" onclick="bgChange(this)" id="ourSpan">😡</span>
+        <span data-mood="tired" data-color="#E5D2C4" onclick="bgChange(this)" id="theirSpan">🥱</span>
+        <span data-mood="excited" data-color="#FA799D"onclick="bgChange(this)" id="yourSpan" >😃</span>
+        <span data-mood="calm" data-color="#86a96f" onclick="bgChange(this)" id="usSpan">😌</span>
     </div>
-    <button class="review">
-    <select>
-        <option>
-            <li> WEEKLY REVIEW</li>
-     </option>
-     <option>
-        <li>Monthly review</li>
-     </option>
-    </select>
-    </button>
-    <canvas id="moodChart"></canvas>
+    <div class="overlay" id="overlay">
+        <div class="log-in-card">
+            <h2> Start your mood journey</h2>
+            <p> Enter your email</p>
+            <input type="email" id="email" placeholder="Youremail">
+            <button id="startBtn"> Start Tracking</button>
+            <p id="loginError"></p>
+        </div>
+    </div>
+    <p>Clicked: <span id="count">0</span>times</p>
 </body>
 <script src= script.js> script.js</script>
 </html>

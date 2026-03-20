@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 40px 20px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    h1 { margin-bottom: 24px; }
+
+    .mood-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .emoji-icon { font-size: 1.8rem; }
+
+    .mood-name {
+      flex: 1;
+      text-transform: capitalize;
+      font-size: 1rem;
+    }
+
+    .mood-count {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .empty {
+      color: #999;
+      margin-top: 40px;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 30px;
+      color: inherit;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mood Report</h1>
+  <div id="report"></div>
+  <a href="index.html">← Back</a>
+
+  <script>
+    const emojiMap = {
+      happy: "😊",
+      sad: "😞",
+      numb: "😑",
+      angry: "😡",
+      tired: "🥱",
+      excited: "😃",
+      calm: "😌"
+    };
+
+    const moodCounts = JSON.parse(localStorage.getItem('moodCounts') || '{}');
+    const report = document.getElementById('report');
+
+    if (Object.keys(moodCounts).length === 0) {
+      report.innerHTML = '<p class="empty">No moods tracked yet. Go click some emojis!</p>';
+    } else {
+      
+      const sorted = Object.entries(moodCounts).sort((a, b) => b[1] - a[1]);
+
+      sorted.forEach(([mood, count]) => {
+        const row = document.createElement('div');
+        row.className = 'mood-row';
+        row.innerHTML = `
+          <span class="emoji-icon">${emojiMap[mood] || '❓'}</span>
+          <span class="mood-name">${mood}</span>
+          <span class="mood-count">${count}x</span>
+        `;
+        report.appendChild(row);
+      });
+    }
+  </script>
+</body>
+</html>
